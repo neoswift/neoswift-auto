@@ -1,0 +1,1 @@
+NeoSwift Auto GitHub write connection test after reauthorization.
