@@ -78,10 +78,20 @@ footer{background:#061f3d;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 </div></div></section>
 
 <section id="find-parts" aria-labelledby="find-parts-title"><div class="wrap"><div class="card mini" style="max-width:850px;margin:auto">
-<h2 class="title" id="find-parts-title">Find Car Parts with AI</h2>
-<p>Need a replacement part? NeoSwift Auto can help you plan a search for OEM, aftermarket, new, and used parts from Dallas–Fort Worth and online suppliers. Have your vehicle year, make, model, and the part you need ready. VIN is useful for fitment; never share sensitive personal information.</p>
-<div class="buttons"><a class="btn green" href="mailto:sales@neoswift.org?subject=Car%20Parts%20Finder%20Request&amp;body=Vehicle%20year%2Fmake%2Fmodel%3A%0APart%20needed%3A%0AZIP%20code%3A%0APreferred%20condition%3A">Request Help Finding Parts</a></div>
-<p style="font-size:14px;color:var(--muted)">AI parts-search link coming after the correct public GPT link is confirmed. Parts prices, availability, and fitment must be verified with the seller.</p>
+<h2 class="title" id="find-parts-title">NeoSwift Parts Hunter</h2>
+<p>Need a hood, headlight, mechanical part, or another replacement? Tell us what you need. We compare safe OEM, used OEM, and quality aftermarket options across DFW (starting near 75006) and online, accounting for shipping, tax, pickup, and fitment.</p>
+<form class="form" id="parts-request" onsubmit="sendPartsRequest(event)">
+<label for="parts-vehicle">Year, make, model, trim and engine</label><input id="parts-vehicle" required maxlength="160" placeholder="2021 Chevrolet Equinox LS 1.5L">
+<label for="parts-vin">VIN (optional; helps verify compatibility)</label><input id="parts-vin" maxlength="17" pattern="[A-HJ-NPR-Z0-9]{17}" title="Enter a 17-character VIN without I, O or Q, or leave blank" style="text-transform:uppercase" placeholder="17-character VIN">
+<label for="parts-needed">Parts needed, quantity and side/position</label><textarea id="parts-needed" required maxlength="1200" placeholder="Hood, left fender, driver-side LED headlight"></textarea>
+<label for="parts-zip">ZIP code for pickup/delivery</label><input id="parts-zip" required inputmode="numeric" pattern="[0-9]{5}" value="75006" maxlength="5">
+<label for="parts-condition">Condition preference</label><select id="parts-condition" style="width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font:inherit"><option>Compare all safe options</option><option>Used OEM</option><option>New OEM</option><option>New aftermarket (CAPA where appropriate)</option></select>
+<label for="parts-priority">Priority</label><select id="parts-priority" style="width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font:inherit"><option>Lowest safe landed cost</option><option>Fastest available</option><option>OEM quality and warranty</option></select>
+<label for="parts-contact">Contact email or phone</label><input id="parts-contact" required maxlength="120" placeholder="Where can we follow up?">
+<label for="parts-notes">Color code, part number, or other fitment details (optional)</label><textarea id="parts-notes" maxlength="800" placeholder="Paint code, sensors, connectors, build date, deadline"></textarea>
+<button class="btn green" type="submit">Prepare Parts Request</button>
+</form>
+<p style="font-size:14px;color:var(--muted)">This prepares an email in your own email app; it does not submit or store your details on this website. Live AI searches and automatic supplier quotes are not enabled yet. Always verify compatibility, condition, stock, and final seller pricing before purchasing.</p>
 </div></div></section>
 <section id="why"><div class="wrap"><h2 class="title">Why NeoSwift Auto?</h2><div class="grid3">
 <div class="card mini"><h3>Clear Listings</h3><p>We aim to show the important vehicle details, pricing and known condition information up front.</p></div>
@@ -107,6 +117,21 @@ footer{background:#061f3d;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 <div class="sticky"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org">Email</a></div>
 
 <script>
+function sendPartsRequest(e){
+ e.preventDefault();
+ const v=id=>document.getElementById(id).value.trim();
+ const details=[
+  'Vehicle: '+v('parts-vehicle'),
+  'VIN: '+(v('parts-vin')||'Not provided'),
+  'Parts, side and quantity: '+v('parts-needed'),
+  'ZIP: '+v('parts-zip'),
+  'Condition: '+v('parts-condition'),
+  'Priority: '+v('parts-priority'),
+  'Contact: '+v('parts-contact'),
+  'Other fitment details: '+(v('parts-notes')||'None')
+ ].join('\n');
+ window.location.href='mailto:sales@neoswift.org?subject='+encodeURIComponent('NeoSwift Parts Hunter request - '+v('parts-vehicle'))+'&body='+encodeURIComponent(details);
+}
 function sendOffer(e){
  e.preventDefault();
  const g=id=>document.getElementById(id).value;
