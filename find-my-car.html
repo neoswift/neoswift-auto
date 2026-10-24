@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Find My Car Questionnaire | NeoSwift Auto</title><meta name="description" content="Tell NeoSwift Auto which vehicle you want, your budget and buying timeline.">
+<style>
+:root{font-family:Arial,Helvetica,sans-serif;color:#172b20;background:#eff8f0}*{box-sizing:border-box}body{margin:0;line-height:1.5}
+nav{background:#063b24;color:#fff;padding:18px max(4%,calc((100% - 1050px)/2))}nav a{color:white;text-decoration:none;font-weight:800}
+main{max-width:780px;margin:36px auto 60px;padding:0 18px}h1{font-size:clamp(30px,5vw,44px);color:#073d27;margin-bottom:8px}.sub{color:#5c7264}
+form{background:#fff;padding:clamp(20px,4vw,38px);border-radius:18px;box-shadow:0 8px 26px #10203013}
+fieldset{border:0;margin:0 0 28px;padding:0}legend{font-size:21px;font-weight:800;color:#073d27;border-bottom:1px solid #d8e8dc;width:100%;padding-bottom:8px;margin-bottom:14px}
+label{display:block;font-weight:700;margin:16px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #aabfb1;border-radius:8px;font:inherit;background:#fff;color:#172b20}textarea{min-height:92px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.note{font-size:14px;color:#596d61}.btn{background:#229b49;color:white;padding:14px 20px;border:0;border-radius:9px;font:inherit;font-weight:800;cursor:pointer}.btn:hover{background:#17683b}
+@media(max-width:580px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<nav><a href="./">← NeoSwift Auto — Back to Vehicles</a></nav>
+<main><h1>Find My Car</h1><p class="sub">Tell us what you're looking for. We'll review your request and contact you about potential matches.</p>
+<form id="carRequest">
+<fieldset><legend>Your vehicle preferences</legend>
+<div class="grid"><div><label for="type">Vehicle type *</label><select id="type" required><option value="">Choose one</option><option>Sedan</option><option>SUV / Crossover</option><option>Truck</option><option>Minivan</option><option>Coupe</option><option>Any type</option></select></div>
+<div><label for="make">Preferred make</label><input id="make" maxlength="80" placeholder="Toyota, Honda, Lexus"></div>
+<div><label for="model">Preferred model</label><input id="model" maxlength="80" placeholder="RAV4, Accord, Camry"></div>
+<div><label for="year">Preferred year range</label><input id="year" maxlength="50" placeholder="2018–2024"></div>
+<div><label for="budget">Maximum purchase budget (USD) *</label><input id="budget" required type="number" min="500" max="500000" step="100" placeholder="12000"></div>
+<div><label for="miles">Maximum mileage</label><input id="miles" type="number" min="0" max="500000" step="1000" placeholder="100000"></div>
+<div><label for="title">Acceptable title type</label><select id="title"><option>Clean title only</option><option>Clean or rebuilt title</option><option>Flexible — discuss options</option></select></div>
+<div><label for="timing">When are you planning to buy? *</label><select id="timing" required><option value="">Choose one</option><option>Immediately</option><option>Within 2 weeks</option><option>Within 30 days</option><option>Within 2–3 months</option><option>Just browsing</option></select></div></div>
+<label for="features">Must-have features or other requests</label><textarea id="features" maxlength="1000" placeholder="AWD, backup camera, color preference, third-row seating..."></textarea>
+</fieldset>
+<fieldset><legend>How can we reach you?</legend>
+<div class="grid"><div><label for="name">Full name *</label><input id="name" required maxlength="120" autocomplete="name"></div>
+<div><label for="phone">Phone number *</label><input id="phone" type="tel" required maxlength="30" autocomplete="tel"></div>
+<div><label for="email">Email address</label><input id="email" type="email" maxlength="180" autocomplete="email"></div>
+<div><label for="zip">ZIP code *</label><input id="zip" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="75006" autocomplete="postal-code"></div></div>
+<label for="contact">Preferred contact method</label><select id="contact"><option>Text message</option><option>Phone call</option><option>Email</option></select>
+</fieldset>
+<label style="font-weight:normal"><input id="consent" type="checkbox" required style="width:auto;margin-right:8px">I agree that NeoSwift Auto may contact me about this vehicle request. *</label>
+<p class="note">This form opens your email app with the completed request addressed to sales@neoswift.org. You must press Send in your email app to deliver it. We do not collect or store responses on this web page. Please do not include sensitive financial information.</p>
+<button class="btn" type="submit">Prepare My Vehicle Request</button>
+<p id="status" class="note" role="status" aria-live="polite"></p>
+</form></main>
+<script>
+document.getElementById('carRequest').addEventListener('submit',function(e){
+e.preventDefault();
+const fields=[['Vehicle type','type'],['Make','make'],['Model','model'],['Year range','year'],['Budget (USD)','budget'],['Max mileage','miles'],['Title preference','title'],['Buying timeline','timing'],['Must-have features','features'],['Name','name'],['Phone','phone'],['Email','email'],['ZIP','zip'],['Preferred contact','contact']];
+const body='NeoSwift Auto — Find My Car Request\n\n'+fields.map(([label,id])=>label+': '+(document.getElementById(id).value.trim()||'Not specified')).join('\n')+'\n\nCustomer agreed to contact regarding this request.';
+const link='mailto:sales@neoswift.org?subject='+encodeURIComponent('Find My Car Request — '+document.getElementById('name').value.trim())+'&body='+encodeURIComponent(body);
+document.getElementById('status').textContent='Your email program should open now. Please send the prepared email to complete your request.';
+window.location.href=link;
+});
+</script></body></html>
