@@ -17,6 +17,19 @@ section{padding:42px 0}.title{font-size:32px;color:var(--navy);margin:0 0 20px}.
 .sell{display:grid;grid-template-columns:1fr 1fr;gap:25px}.form{padding:24px}.form label{display:block;font-weight:700;margin:10px 0 5px}.form input,.form textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.form textarea{min-height:100px}
 footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.sticky{display:none}
 @media(max-width:800px){.vehicle,.sell{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.links{display:none}.vehicle img{height:auto}.sticky{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;bottom:0;left:0;right:0;padding:9px;background:#fff;box-shadow:0 -4px 20px #0002;z-index:20}footer{padding-bottom:90px}}
+
+#inventory article.card>.details{display:none}
+#inventory article.card{display:flex;flex-direction:column}
+#inventory article.card .preview-meta{padding:18px 22px 22px;margin-top:auto}
+#inventory article.card .preview-meta h3{font-size:21px;color:var(--navy);margin:0 0 14px}
+#inventory article.card img{height:300px!important;object-fit:contain!important}
+#inventory article.card .preview-meta .btn{width:100%;text-align:center}
+#vehicle-details[hidden],#inventory[hidden]{display:none!important}
+#vehicle-details .detail-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+#vehicle-details .detail-layout>.details{display:block}
+#vehicle-details .detail-layout img{display:block;width:100%;height:auto!important;max-height:650px;object-fit:contain!important;background:#e4f2e8}
+#vehicle-details .detail-layout .preview-meta{display:none}
+@media(max-width:800px){#vehicle-details .detail-layout{grid-template-columns:1fr}}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
@@ -30,7 +43,7 @@ footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 <body id="top">
 <nav class="nav"><div class="wrap navin"><a class="brand" href="#top" aria-label="NeoSwift Auto home" style="text-decoration:none;color:white;display:block;line-height:1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 78" width="235" height="54" role="img" aria-label="NeoSwift Auto — Quality Pre-Owned Vehicles" style="max-width:100%;height:auto;display:block"><path d="M13 31 Q52 0 123 8 Q158 12 182 29 Q152 19 127 19 Q77 8 37 29 L13 31" fill="none" stroke="#64d685" stroke-width="5" stroke-linecap="round"/><path d="M107 9 Q148 -1 182 25 Q155 15 136 15" fill="#fff"/><text x="8" y="56" fill="#72df87" font-size="39" font-family="Arial,sans-serif" font-weight="900" font-style="italic" letter-spacing="-2">NEO</text><text x="94" y="56" fill="#fff" font-size="39" font-family="Arial,sans-serif" font-weight="900" font-style="italic" letter-spacing="-2">SWIFT</text><text x="231" y="56" fill="#fff" font-size="31" font-family="Arial,sans-serif" font-weight="900" font-style="italic" letter-spacing="-1">AUTO</text><text x="13" y="73" fill="#dce8f5" font-size="10" font-family="Arial,sans-serif" letter-spacing="2.4">QUALITY PRE-OWNED VEHICLES</text></svg></a><div class="links"><a href="#inventory">Inventory</a><a href="#find-car">Find My Car</a><a href="#find-parts">Find Car Parts</a><a href="#why">Why Us</a><a href="#sell">Sell Your Car</a><a href="#contact">Contact</a></div></div></nav>
 
-<header class="hero"><div class="wrap"><h1>Used Cars.<br>Simple Deals.</h1><p>Straightforward used-car listings serving Carrollton and the North Dallas area. See the price, condition and known issues before you contact us.</p><div class="buttons"><a class="btn light" href="#inventory">View Cars</a><a class="btn blue" href="#find-car">Find My Car</a><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org">Email Us</a></div></div></header>
+<header class="hero"><div class="wrap"><h1>Used Cars.<br>Simple Deals.</h1><p>Straightforward used-car listings serving Carrollton and the North Dallas area. Browse our cars and select View Details for price, mileage, title information and condition disclosures.</p><div class="buttons"><a class="btn light" href="#inventory">View Cars</a><a class="btn blue" href="#find-car">Find My Car</a><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org">Email Us</a></div></div></header>
 
 <main>
 <section id="inventory"><div class="wrap"><h2 class="title">Available Vehicles</h2>
@@ -149,5 +162,58 @@ function sendOffer(e){
  const body=`Vehicle: ${g('car')}\nMileage: ${g('miles')}\nTitle / Condition: ${g('condition')}\nAsking Price: ${g('asking')}\nContact: ${g('reply')}\nNotes: ${g('notes')}`;
  window.location.href='mailto:sales@neoswift.org?subject='+encodeURIComponent('Vehicle Offer - '+g('car'))+'&body='+encodeURIComponent(body);
 }
+</script>
+
+<script>
+(function(){
+ const inventory=document.getElementById('inventory');
+ const cards=Array.from(inventory.querySelectorAll('article.card'));
+ const detail=document.createElement('section');
+ detail.id='vehicle-details';
+ detail.hidden=true;
+ inventory.insertAdjacentElement('afterend',detail);
+ const names=[];
+ cards.forEach(function(card,index){
+  const name=(card.querySelector('.details h2')?.textContent||'Vehicle').trim();
+  names.push(name);
+  const preview=document.createElement('div');preview.className='preview-meta';
+  const heading=document.createElement('h3');heading.textContent=name;
+  const button=document.createElement('a');
+  button.className='btn green';button.textContent='View Details';
+  button.href='?vehicle='+(index+1)+'#vehicle-details';
+  preview.append(heading,button);card.append(preview);
+  const photoLink=card.querySelector('a:has(img)');
+  if(photoLink){photoLink.href=button.href;photoLink.removeAttribute('target');photoLink.removeAttribute('download');}
+ });
+ function render(){
+  const value=new URLSearchParams(location.search).get('vehicle');
+  const selected=Number(value);
+  if(!value||!Number.isInteger(selected)||selected<1||selected>cards.length){
+   inventory.hidden=false;detail.hidden=true;detail.replaceChildren();return;
+  }
+  inventory.hidden=true;detail.hidden=false;
+  const wrap=document.createElement('div');wrap.className='wrap';
+  const back=document.createElement('a');back.className='btn blue';back.href=location.pathname+'#inventory';back.textContent='← Back to Inventory';
+  const title=document.createElement('h2');title.className='title';title.style.marginTop='20px';title.textContent=names[selected-1];
+  const listing=cards[selected-1].cloneNode(true);listing.classList.add('detail-layout');
+  listing.querySelector('.preview-meta')?.remove();
+  const photoLink=listing.querySelector('a:has(img)');
+  if(photoLink){photoLink.href=photoLink.querySelector('img').getAttribute('src');photoLink.target='_blank';}
+  wrap.append(back,title,listing);detail.replaceChildren(wrap);
+ }
+ document.addEventListener('click',function(event){
+  const a=event.target.closest('a[href]');
+  if(!a)return;
+  const url=new URL(a.href,location.href);
+  if(url.origin!==location.origin)return;
+  if(url.searchParams.has('vehicle')){
+   event.preventDefault();history.pushState({},'',url.href);render();detail.scrollIntoView();
+  }else if(a.getAttribute('href')===location.pathname+'#inventory'){
+   event.preventDefault();history.pushState({},'',url.href);render();inventory.scrollIntoView();
+  }
+ });
+ window.addEventListener('popstate',render);
+ render();
+})();
 </script>
 </body></html>
