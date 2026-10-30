@@ -17,6 +17,19 @@ section{padding:42px 0}.title{font-size:32px;color:var(--navy);margin:0 0 20px}.
 .sell{display:grid;grid-template-columns:1fr 1fr;gap:25px}.form{padding:24px}.form label{display:block;font-weight:700;margin:10px 0 5px}.form input,.form textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.form textarea{min-height:100px}
 footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.sticky{display:none}
 @media(max-width:800px){.vehicle,.sell{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.links{display:none}.vehicle img{height:auto}.sticky{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;bottom:0;left:0;right:0;padding:9px;background:#fff;box-shadow:0 -4px 20px #0002;z-index:20}footer{padding-bottom:90px}}
+
+#inventory article.card>.details{display:none}
+#inventory article.card{display:flex;flex-direction:column}
+#inventory article.card .preview-meta{padding:18px 22px 22px;margin-top:auto}
+#inventory article.card .preview-meta h3{font-size:21px;color:var(--navy);margin:0 0 14px}
+#inventory article.card img{height:300px!important;object-fit:contain!important}
+#inventory article.card .preview-meta .btn{width:100%;text-align:center}
+#vehicle-details[hidden],#inventory[hidden]{display:none!important}
+#vehicle-details .detail-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+#vehicle-details .detail-layout>.details{display:block}
+#vehicle-details .detail-layout img{display:block;width:100%;height:auto!important;max-height:650px;object-fit:contain!important;background:#e4f2e8}
+#vehicle-details .detail-layout .preview-meta{display:none}
+@media(max-width:800px){#vehicle-details .detail-layout{grid-template-columns:1fr}}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
@@ -30,7 +43,7 @@ footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 <body id="top">
 <nav class="nav"><div class="wrap navin"><a class="brand" href="#top" aria-label="NeoSwift Auto home" style="text-decoration:none;color:white;display:block;line-height:1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 78" width="235" height="54" role="img" aria-label="NeoSwift Auto — Quality Pre-Owned Vehicles" style="max-width:100%;height:auto;display:block"><path d="M13 31 Q52 0 123 8 Q158 12 182 29 Q152 19 127 19 Q77 8 37 29 L13 31" fill="none" stroke="#64d685" stroke-width="5" stroke-linecap="round"/><path d="M107 9 Q148 -1 182 25 Q155 15 136 15" fill="#fff"/><text x="8" y="56" fill="#72df87" font-size="39" font-family="Arial,sans-serif" font-weight="900" font-style="italic" letter-spacing="-2">NEO</text><text x="94" y="56" fill="#fff" font-size="39" font-family="Arial,sans-serif" font-weight="900" font-style="italic" letter-spacing="-2">SWIFT</text><text x="231" y="56" fill="#fff" font-size="31" font-family="Arial,sans-serif" font-weight="900" font-style="italic" letter-spacing="-1">AUTO</text><text x="13" y="73" fill="#dce8f5" font-size="10" font-family="Arial,sans-serif" letter-spacing="2.4">QUALITY PRE-OWNED VEHICLES</text></svg></a><div class="links"><a href="#inventory">Inventory</a><a href="#find-car">Find My Car</a><a href="#find-parts">Find Car Parts</a><a href="#why">Why Us</a><a href="#sell">Sell Your Car</a><a href="#contact">Contact</a></div></div></nav>
 
-<header class="hero"><div class="wrap"><h1>Used Cars.<br>Simple Deals.</h1><p>Straightforward used-car listings serving Carrollton and the North Dallas area. See the price, condition and known issues before you contact us.</p><div class="buttons"><a class="btn light" href="#inventory">View Cars</a><a class="btn blue" href="#find-car">Find My Car</a><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org">Email Us</a></div></div></header>
+<header class="hero"><div class="wrap"><h1>Used Cars.<br>Simple Deals.</h1><p>Straightforward used-car listings serving Carrollton and the North Dallas area. Browse our cars and select View Details for price, mileage, title information and condition disclosures.</p><div class="buttons"><a class="btn light" href="#inventory">View Cars</a><a class="btn blue" href="#find-car">Find My Car</a><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org">Email Us</a></div></div></header>
 
 <main>
 <section id="inventory"><div class="wrap"><h2 class="title">Available Vehicles</h2>
@@ -38,7 +51,7 @@ footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 
 <article class="card">
 <a href="Toyota_2017_Sienna_Limited.png" target="_blank" title="View Toyota Sienna listing illustration"><img src="Toyota_2017_Sienna_Limited.png?v=b758a65e9f67" alt="AI-generated promotional illustration of white 2017 Toyota Sienna Limited, not actual vehicle photographs" style="width:100%;height:330px;object-fit:contain;background:#e4f2e8;display:block"></a>
-<div class="details"><span class="status" style="background:#fff2dc;color:#8a4b00">AVAILABLE • REBUILT TITLE</span><h2>2017 Toyota Sienna Limited — White</h2><div class="price">$15,250</div><div class="facts">120,000 miles • Gray leather interior<br>Carrollton / Dallas, TX area</div><div class="chips"><span class="chip">Limited</span><span class="chip">Rebuilt Title</span><span class="chip">Gray Leather Interior</span></div><div class="notice"><b>Title disclosure:</b> Rebuilt title. Mileage, price, color and interior are seller-provided. Image is AI-generated and not actual vehicle photography. VIN, features and condition have not been verified; buyers should inspect before purchase.</div><div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2017%20Toyota%20Sienna%20Limited%20-%20%2415250">Email</a></div></div></article>
+<div class="details"><span class="status" style="background:#fff2dc;color:#8a4b00">AVAILABLE • REBUILT TITLE</span><h2>2017 Toyota Sienna Limited — Pearl White</h2><div class="price">$14,250</div><div class="facts">120,000 miles • Gray leather interior<br>Carrollton / Dallas, TX area</div><div class="chips"><span class="chip">Limited</span><span class="chip">Rebuilt Title</span><span class="chip">Gray Leather Interior</span></div><div class="notice"><b>Title disclosure:</b> Rebuilt title. Mileage, price, color and interior are seller-provided. Image is AI-generated and not actual vehicle photography. VIN, features and condition have not been verified; buyers should inspect before purchase.</div><div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2017%20Toyota%20Sienna%20Limited%20-%20%2414250">Email</a></div></div></article>
 
 <article class="card">
 <a href="Honda_2020_Odyssey_EXL_Maroon.png" target="_blank" title="View Honda Odyssey illustration"><img src="Honda_2020_Odyssey_EXL_Maroon.png?v=20261025" alt="AI-generated illustration of maroon 2020 Honda Odyssey EX-L; not actual vehicle photos" style="width:100%;height:330px;object-fit:contain;background:#e4f2e8;display:block"></a>
@@ -46,23 +59,23 @@ footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 
 <article class="card">
 <a href="Chrysler_2010_Town_and_Country_Touring.png" target="_blank" title="View Chrysler Town & Country listing illustration"><img src="Chrysler_2010_Town_and_Country_Touring.png?v=20261025" alt="Illustrative listing image for white 2010 Chrysler Town & Country Touring; not photographs of the actual vehicle" style="width:100%;height:330px;object-fit:contain;background:#e4f2e8;display:block"></a>
-<div class="details"><span class="status">AVAILABLE • CLEAN TITLE</span><h2>2010 Chrysler Town &amp; Country Touring — White</h2><div class="price">$4,250</div><div class="facts">185,000 miles • Gray interior<br>Carrollton / Dallas, TX area</div><div class="chips"><span class="chip">Touring</span><span class="chip">Clean Title</span></div><div class="notice"><b>Vehicle information:</b> Mileage, price, colors and title are seller-provided. The promotional image is AI-generated, not actual vehicle photography. Verify equipment, condition, and title before purchase.</div><div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2010%20Chrysler%20Town%20and%20Country%20Touring%20-%20%244250">Email</a></div></div></article>
+<div class="details"><span class="status">AVAILABLE • CLEAN TITLE</span><h2>2010 Chrysler Town &amp; Country Touring — White</h2><div class="price">$3,750</div><div class="facts">185,000 miles • Gray interior<br>Carrollton / Dallas, TX area</div><div class="chips"><span class="chip">Touring</span><span class="chip">Clean Title</span></div><div class="notice"><b>Vehicle information:</b> Mileage, price, colors and title are seller-provided. The promotional image is AI-generated, not actual vehicle photography. Verify equipment, condition, and title before purchase.</div><div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2010%20Chrysler%20Town%20and%20Country%20Touring%20-%20%243750">Email</a></div></div></article>
 
 <article class="card">
 <div style="padding:12px;background:#e4f2e8">
 <a href="Honda_2019_LX.png" target="_blank" title="View Honda Accord listing image"><img src="Honda_2019_LX.png?v=20261025-2" alt="2019 Honda Accord LX listing image; verify vehicle details against actual car" style="width:100%;height:330px;object-fit:contain;display:block;background:#e4f2e8"></a></div>
-<div class="details"><span class="status">AVAILABLE • CLEAN TITLE</span><h2>2019 Honda Accord LX — Black</h2><div class="price">$24,250</div><div class="facts">9,XXX miles (approximate) • Automatic • Black interior<br>Carrollton / Dallas, TX area</div><div class="chips"><span class="chip">Single Owner</span><span class="chip">Garage Kept</span><span class="chip">Mint Condition (Seller Reported)</span><span class="chip">Clean Title</span></div><div class="notice"><b>Condition:</b> Seller reports mint condition and no known issues. Mileage is approximate; VIN, equipment, ownership and condition should be verified before purchase. Vehicle photos pending.</div><div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2019%20Honda%20Accord%20LX%20-%20%2424250">Email</a></div></div></article>
+<div class="details"><span class="status">AVAILABLE • CLEAN TITLE</span><h2>2019 Honda Accord LX — Black</h2><div class="price">$23,750</div><div class="facts">9,XXX miles (approximate) • Automatic • Black interior<br>Carrollton / Dallas, TX area</div><div class="chips"><span class="chip">Single Owner</span><span class="chip">Garage Kept</span><span class="chip">Mint Condition (Seller Reported)</span><span class="chip">Clean Title</span></div><div class="notice"><b>Condition:</b> Seller reports mint condition and no known issues. Mileage is approximate; VIN, equipment, ownership and condition should be verified before purchase. Vehicle photos pending.</div><div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2019%20Honda%20Accord%20LX%20-%20%2423750">Email</a></div></div></article>
 
 <article class="card">
 <div style="padding:12px;background:#e8eef5"><a href="Chevrolet_2021_Equinox_LS.png" target="_blank" title="Open Equinox representative image gallery"><img src="Chevrolet_2021_Equinox_LS.png?v=20261025-2" alt="AI-generated representative 12-view gallery of a gray 2021 Chevrolet Equinox LS; not actual vehicle photographs" style="width:100%;height:330px;object-fit:cover;object-position:center;display:block" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<p style=&quot;text-align:center;padding:60px 10px&quot;>2021 Chevrolet Equinox LS — representative gallery image upload pending</p>')"></a><p style="font-size:12px;margin:6px 0">Illustrative AI-generated images, not photographs of the vehicle being sold. Click to enlarge.</p></div>
 <div class="details">
 <span class="status" style="background:#e4f5e6;color:#17683b">AVAILABLE • REBUILT TITLE</span>
 <h2>2021 Chevrolet Equinox LS — Gray</h2>
-<div class="price">$10,250</div>
+<div class="price">$9,250</div>
 <div class="facts">Approximately 89,000 miles • 1.5L Turbo 4-Cylinder • 6-Speed Automatic<br>Carrollton / Dallas, TX area</div>
 <div class="chips"><span class="chip">Lane Keeping Assistance</span><span class="chip">Forward Collision Warning</span><span class="chip">Backup Camera</span><span class="chip">A/C &amp; Heat</span><span class="chip">Paid Off</span></div>
 <div class="notice"><b>Title disclosure:</b> Rebuilt title. No specific mechanical issues were reported in the listing information. Buyers should inspect the vehicle and verify equipment, title and condition before purchase.</div>
-<div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2021%20Chevrolet%20Equinox%20LS%20-%20%2410250">Email</a></div>
+<div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2021%20Chevrolet%20Equinox%20LS%20-%20%249250">Email</a></div>
 </div></article>
 
 <article class="card">
@@ -70,11 +83,11 @@ footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 <div class="details">
 <span class="status" style="background:#fff2dc;color:#8a4b00">AVAILABLE • REBUILT TITLE</span>
 <h2>2015 Infiniti QX60 Base SUV 4D — Gray</h2>
-<div class="price">$6,250</div>
+<div class="price">$5,250</div>
 <div class="facts">225,000 miles • 3.5L V6 • Automatic<br>Carrollton / Dallas, TX area</div>
 <div class="chips"><span class="chip">Heated &amp; Cooled Seats</span><span class="chip">A/C &amp; Heat</span><span class="chip">3-Row SUV</span><span class="chip">Multiple Owners</span><span class="chip">Paid Off</span></div>
 <div class="notice"><b>Title disclosure:</b> Rebuilt title. High mileage (225,000 miles). Specific mechanical issues have not been provided; buyers should independently inspect the vehicle and verify condition and features before purchase.</div>
-<div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2015%20Infiniti%20QX60%20-%20%246250">Email</a></div>
+<div class="buttons"><a class="btn green" href="tel:+12026270455">Call / Text</a><a class="btn blue" href="mailto:sales@neoswift.org?subject=2015%20Infiniti%20QX60%20-%20%245250">Email</a></div>
 </div></article>
 
 
@@ -149,5 +162,58 @@ function sendOffer(e){
  const body=`Vehicle: ${g('car')}\nMileage: ${g('miles')}\nTitle / Condition: ${g('condition')}\nAsking Price: ${g('asking')}\nContact: ${g('reply')}\nNotes: ${g('notes')}`;
  window.location.href='mailto:sales@neoswift.org?subject='+encodeURIComponent('Vehicle Offer - '+g('car'))+'&body='+encodeURIComponent(body);
 }
+</script>
+
+<script>
+(function(){
+ const inventory=document.getElementById('inventory');
+ const cards=Array.from(inventory.querySelectorAll('article.card'));
+ const detail=document.createElement('section');
+ detail.id='vehicle-details';
+ detail.hidden=true;
+ inventory.insertAdjacentElement('afterend',detail);
+ const names=[];
+ cards.forEach(function(card,index){
+  const name=(card.querySelector('.details h2')?.textContent||'Vehicle').trim();
+  names.push(name);
+  const preview=document.createElement('div');preview.className='preview-meta';
+  const heading=document.createElement('h3');heading.textContent=name;
+  const button=document.createElement('a');
+  button.className='btn green';button.textContent='View Details';
+  button.href='?vehicle='+(index+1)+'#vehicle-details';
+  preview.append(heading,button);card.append(preview);
+  const photoLink=card.querySelector('a:has(img)');
+  if(photoLink){photoLink.href=button.href;photoLink.removeAttribute('target');photoLink.removeAttribute('download');}
+ });
+ function render(){
+  const value=new URLSearchParams(location.search).get('vehicle');
+  const selected=Number(value);
+  if(!value||!Number.isInteger(selected)||selected<1||selected>cards.length){
+   inventory.hidden=false;detail.hidden=true;detail.replaceChildren();return;
+  }
+  inventory.hidden=true;detail.hidden=false;
+  const wrap=document.createElement('div');wrap.className='wrap';
+  const back=document.createElement('a');back.className='btn blue';back.href=location.pathname+'#inventory';back.textContent='← Back to Inventory';
+  const title=document.createElement('h2');title.className='title';title.style.marginTop='20px';title.textContent=names[selected-1];
+  const listing=cards[selected-1].cloneNode(true);listing.classList.add('detail-layout');
+  listing.querySelector('.preview-meta')?.remove();
+  const photoLink=listing.querySelector('a:has(img)');
+  if(photoLink){photoLink.href=photoLink.querySelector('img').getAttribute('src');photoLink.target='_blank';}
+  wrap.append(back,title,listing);detail.replaceChildren(wrap);
+ }
+ document.addEventListener('click',function(event){
+  const a=event.target.closest('a[href]');
+  if(!a)return;
+  const url=new URL(a.href,location.href);
+  if(url.origin!==location.origin)return;
+  if(url.searchParams.has('vehicle')){
+   event.preventDefault();history.pushState({},'',url.href);render();detail.scrollIntoView();
+  }else if(a.getAttribute('href')===location.pathname+'#inventory'){
+   event.preventDefault();history.pushState({},'',url.href);render();inventory.scrollIntoView();
+  }
+ });
+ window.addEventListener('popstate',render);
+ render();
+})();
 </script>
 </body></html>
