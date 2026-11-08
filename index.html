@@ -21,7 +21,7 @@ footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 #inventory article.card>.details{display:none}
 #inventory article.card{display:flex;flex-direction:column}
 #inventory article.card .preview-meta{padding:18px 22px 22px;margin-top:auto}
-#inventory article.card .preview-meta h3{font-size:21px;color:var(--navy);margin:0 0 14px}
+#inventory article.card .preview-meta h3{font-size:16px;font-weight:600;line-height:1.35;letter-spacing:-.2px;color:#171717;margin:0 0 14px;white-space:nowrap;width:100%}
 #inventory article.card img{height:300px!important;object-fit:contain!important}
 #inventory article.card .preview-meta .btn{width:100%;text-align:center}
 #vehicle-details[hidden],#inventory[hidden]{display:none!important}
@@ -210,6 +210,22 @@ function sendOffer(e){
   const photoLink=card.querySelector('a:has(img)');
   if(photoLink){photoLink.href=button.href;photoLink.removeAttribute('target');photoLink.removeAttribute('download');}
  });
+ // Fit full vehicle names on one line without clipping.
+ function fitInventoryTitles(){
+  inventory.querySelectorAll('.preview-meta h3').forEach(function(heading){
+   if(!heading.clientWidth)return;
+   let size=16;
+   heading.style.fontSize=size+'px';
+   while(heading.scrollWidth>heading.clientWidth && size>9){
+    size-=0.25;heading.style.fontSize=size+'px';
+   }
+  });
+ }
+ if(typeof ResizeObserver!=='undefined'){
+  const titleObserver=new ResizeObserver(fitInventoryTitles);
+  inventory.querySelectorAll('.preview-meta').forEach(function(meta){titleObserver.observe(meta);});
+ }else{window.addEventListener('resize',fitInventoryTitles);}
+ requestAnimationFrame(fitInventoryTitles);
  function render(){
   const value=new URLSearchParams(location.search).get('vehicle');
   const selected=Number(value);
