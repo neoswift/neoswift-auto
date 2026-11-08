@@ -243,6 +243,20 @@ button:disabled{opacity:.65}
  background:#f0f8f3;
  border-top:1px solid #d9e9df;
 }
+/* Lightly trim embedded top/bottom padding on these three listing thumbnails only.
+   The actual images and the full-size links remain untouched. */
+#inventory .inventory-grid > article.card > a:has(img[src^="Honda_2015_Pilot_LX_White.png"]),
+#inventory .inventory-grid > article.card > a:has(img[src^="Honda_2019_LX_Black.png"]),
+#inventory .inventory-grid > article.card > a:has(img[src^="Audi_2013_A4_Prestige_gray.png"]){
+ overflow:hidden;
+}
+#inventory .inventory-grid > article.card img[src^="Honda_2015_Pilot_LX_White.png"],
+#inventory .inventory-grid > article.card img[src^="Honda_2019_LX_Black.png"],
+#inventory .inventory-grid > article.card img[src^="Audi_2013_A4_Prestige_gray.png"]{
+ width:100%;
+ height:auto!important;
+ margin-block:-3%;
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
