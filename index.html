@@ -93,6 +93,45 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 }
 .btn:focus-visible,button:focus-visible{outline:3px solid #34452a;outline-offset:3px}
 button:disabled{opacity:.65}
+
+/* Header logo palette — alternate button colors, without changing other surfaces. */
+:root{
+ --logo-pistachio:#91a575;
+ --logo-cornflower:#6495ed;
+ --logo-vibrant-green:#28bf60;
+}
+.btn,button.btn{
+ background:var(--logo-pistachio);
+ border:1px solid var(--logo-pistachio);
+ color:#172017;
+}
+.buttons > .btn:nth-child(3n+1),
+.sticky > .btn:nth-child(3n+1),
+#inventory article.card:nth-child(3n+1) .preview-meta .btn{
+ background:var(--logo-pistachio);
+ border-color:var(--logo-pistachio);
+ color:#172017;
+}
+.buttons > .btn:nth-child(3n+2),
+.sticky > .btn:nth-child(3n+2),
+#inventory article.card:nth-child(3n+2) .preview-meta .btn,
+#vehicle-details > .wrap > .btn{
+ background:var(--logo-cornflower);
+ border-color:var(--logo-cornflower);
+ color:#102540;
+}
+.buttons > .btn:nth-child(3n),
+.sticky > .btn:nth-child(3n),
+#inventory article.card:nth-child(3n) .preview-meta .btn,
+.form button.btn{
+ background:var(--logo-vibrant-green);
+ border-color:var(--logo-vibrant-green);
+ color:#092918;
+}
+.btn:hover,button.btn:hover{
+ filter:brightness(.91);
+ box-shadow:0 3px 10px #193a3020;
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
