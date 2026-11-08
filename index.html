@@ -75,6 +75,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 
 /* Original logo colors on their original dark backing */
 .nav .brand{background:transparent;padding:0;border-radius:0;flex-shrink:0;max-width:75vw}
+
+/* Full-width mobile logo with original aspect ratio */
+@media(max-width:800px){
+ .nav .navin{display:block;padding:6px 0}
+ .nav .brand{width:100%;max-width:100%}
+ .nav .brand img{width:100%!important;max-width:100%;height:auto;display:block}
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
