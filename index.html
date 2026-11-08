@@ -707,11 +707,16 @@ h1,h2,h3,.title,.desktop-header-copy h1{
 }
 .btn,button.btn,.status,.chip{font-family:'Exo 2',Arial,Helvetica,sans-serif;font-weight:600}
 .hero p,.desktop-header-copy p,.facts,.notice,.details p{font-style:normal;font-weight:400}
-/* Mobile inventory: 20% taller car photo area, no image cropping or stretching. */
+/* Mobile inventory: taller frames and larger actual vehicle photos. */
 @media (max-width:800px){
  #inventory .inventory-grid > article.card > a:has(img),
  #inventory .inventory-grid > article.card > .vehicle-image-frame{
-  aspect-ratio:1.54 / 1;
+  aspect-ratio:1.45 / 1;
+ }
+ #inventory .inventory-grid > article.card > a img,
+ #inventory .inventory-grid > article.card > .vehicle-image-frame img{
+  transform:scale(1.15);
+  transform-origin:center center;
  }
 }
 </style>
