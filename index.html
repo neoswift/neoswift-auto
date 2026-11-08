@@ -243,6 +243,29 @@ button:disabled{opacity:.65}
  background:#f0f8f3;
  border-top:1px solid #d9e9df;
 }
+/* Reduce empty lower bands in three specified listing thumbnails only.
+   Crop the preview viewport, leaving linked original images untouched. */
+#inventory .inventory-grid > article.card > a:has(> img[src^="Honda_2015_Pilot_LX_White.png"]),
+#inventory .inventory-grid > article.card > a:has(> img[src^="Honda_2019_LX_Black.png"]),
+#inventory .inventory-grid > article.card > a:has(> img[src^="Audi_2013_A4_Prestige_gray.png"]){
+ display:block;
+ position:relative;
+ width:100%;
+ aspect-ratio:1.85 / 1;
+ overflow:hidden;
+}
+#inventory .inventory-grid > article.card > a > img[src^="Honda_2015_Pilot_LX_White.png"],
+#inventory .inventory-grid > article.card > a > img[src^="Honda_2019_LX_Black.png"],
+#inventory .inventory-grid > article.card > a > img[src^="Audi_2013_A4_Prestige_gray.png"]{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:auto!important;
+ object-fit:contain!important;
+ object-position:top center!important;
+}
+
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
