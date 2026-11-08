@@ -467,6 +467,51 @@ button:disabled{opacity:.65}
  }
  .hero p{grid-column:1/-1;grid-row:2;margin:2px 0 0}
 }
+/* Desktop: heading, regular-weight tagline, and action buttons on one compact row. */
+@media (min-width:801px){
+ .hero .wrap{
+  display:grid;
+  grid-template-columns:max-content minmax(0,1fr) max-content;
+  column-gap:clamp(9px,1.1vw,22px);
+  row-gap:0;
+  align-items:center;
+ }
+ .hero h1{
+  grid-column:1;grid-row:1;
+  font-size:clamp(22px,2.1vw,40px);
+  white-space:nowrap;margin:0;
+ }
+ .hero p{
+  grid-column:2;grid-row:1;
+  margin:0;
+  min-width:0;
+  max-width:none;
+  white-space:nowrap;
+  font-size:clamp(13px,1.28vw,24px);
+  font-weight:400;
+  line-height:1.15;
+ }
+ .hero .hero-desktop-copy{font-weight:400}
+ .hero .buttons{
+  grid-column:3;grid-row:1;
+  justify-self:end;
+  justify-content:flex-end;
+  flex-wrap:nowrap;
+  margin:0;
+  gap:clamp(3px,.45vw,9px);
+ }
+ .hero .buttons .btn{
+  white-space:nowrap;
+  font-size:clamp(10px,.72vw,14px);
+  padding:clamp(7px,.55vw,11px) clamp(6px,.65vw,12px);
+ }
+}
+@media (min-width:801px) and (max-width:1199px){
+ .hero .wrap{column-gap:8px}
+ .hero h1{font-size:clamp(20px,2.1vw,26px)}
+ .hero p{font-size:clamp(11px,1.15vw,15px)}
+ .hero .buttons .btn{font-size:10px;padding:7px 6px}
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
