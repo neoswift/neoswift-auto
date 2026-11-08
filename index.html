@@ -435,6 +435,38 @@ button:disabled{opacity:.65}
  }
  .nav .mobile-header-pegasus{justify-self:start}
 }
+/* Desktop hero: heading and primary action buttons share the same row. */
+@media (min-width:801px){
+ .hero .wrap{
+  display:grid;
+  grid-template-columns:max-content minmax(0,1fr);
+  column-gap:clamp(12px,2vw,36px);
+  row-gap:4px;
+  align-items:center;
+ }
+ .hero h1{
+  grid-column:1;grid-row:1;
+  font-size:clamp(25px,2.35vw,46px);
+  margin:0;white-space:nowrap;
+ }
+ .hero .buttons{
+  grid-column:2;grid-row:1;
+  display:flex;
+  flex-wrap:nowrap;
+  justify-self:end;
+  justify-content:flex-end;
+  align-items:center;
+  gap:clamp(4px,.6vw,12px);
+  margin:0;
+  min-width:0;
+ }
+ .hero .buttons .btn{
+  white-space:nowrap;
+  padding:clamp(7px,.65vw,11px) clamp(7px,.8vw,14px);
+  font-size:clamp(10px,.85vw,14px);
+ }
+ .hero p{grid-column:1/-1;grid-row:2;margin:2px 0 0}
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
