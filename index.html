@@ -707,6 +707,13 @@ h1,h2,h3,.title,.desktop-header-copy h1{
 }
 .btn,button.btn,.status,.chip{font-family:'Exo 2',Arial,Helvetica,sans-serif;font-weight:600}
 .hero p,.desktop-header-copy p,.facts,.notice,.details p{font-style:normal;font-weight:400}
+/* Mobile inventory: 20% taller car photo area, no image cropping or stretching. */
+@media (max-width:800px){
+ #inventory .inventory-grid > article.card > a:has(img),
+ #inventory .inventory-grid > article.card > .vehicle-image-frame{
+  aspect-ratio:1.54 / 1;
+ }
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
