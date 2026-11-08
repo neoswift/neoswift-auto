@@ -720,44 +720,43 @@ h1,h2,h3,.title,.desktop-header-copy h1{
   object-position:center center!important;
  }
 }
-/* Desktop inventory: linked vehicle titles replace View Details buttons. */
+/* Inventory title buttons on both desktop and mobile: one action per card. */
+#inventory .inventory-grid > article.card .preview-meta{padding:12px!important}
+#inventory .inventory-grid > article.card .preview-meta h3{
+ margin:0!important;
+ white-space:nowrap;
+}
 #inventory .inventory-grid > article.card .vehicle-title-link{
  display:block;
  width:100%;
- cursor:pointer;
- color:inherit;
- text-decoration:none;
- border-radius:7px;
+ padding:10px 6px;
+ text-align:center;
  font:inherit;
+ font-weight:700;
+ cursor:pointer;
+ color:#172017;
+ background:#91a575;
+ border:1px solid #768b5c;
+ border-radius:7px;
+ text-decoration:none!important;
+ -webkit-text-decoration:none!important;
+ transition:filter .15s ease,box-shadow .15s ease;
+}
+#inventory .inventory-grid > article.card:nth-child(even) .vehicle-title-link{
+ background:#28bf60;
+ border-color:#1b9c49;
+}
+#inventory .inventory-grid > article.card .vehicle-title-link:hover,
+#inventory .inventory-grid > article.card .vehicle-title-link:active{
+ filter:brightness(.92);
+ text-decoration:none!important;
 }
 #inventory .inventory-grid > article.card .vehicle-title-link:focus-visible{
  outline:3px solid #28785a;
  outline-offset:2px;
+ text-decoration:none!important;
 }
-@media (min-width:801px){
- #inventory .inventory-grid > article.card .preview-meta{padding:12px!important}
- #inventory .inventory-grid > article.card .preview-meta h3{
-  margin:0!important;
-  white-space:nowrap;
- }
- #inventory .inventory-grid > article.card .vehicle-title-link{
-  padding:10px 6px;
-  text-align:center;
-  font-weight:700;
-  color:#172017;
-  background:#91a575;
-  border:1px solid #768b5c;
- }
- #inventory .inventory-grid > article.card:nth-child(even) .vehicle-title-link{
-  background:#28bf60;
-  border-color:#1b9c49;
- }
- #inventory .inventory-grid > article.card .vehicle-title-link:hover{
-  filter:brightness(.92);
-  text-decoration:none;
- }
- #inventory .inventory-grid > article.card .preview-meta > .btn{display:none!important}
-}
+#inventory .inventory-grid > article.card .preview-meta > .btn{display:none!important}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
