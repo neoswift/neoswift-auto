@@ -305,25 +305,32 @@ button:disabled{opacity:.65}
  .hero h1{max-width:100%;white-space:nowrap}
  .hero p{padding-top:0;margin-top:4px}
 }
-/* Desktop: bring Pegasus beside NeoSwift Auto logo in the top navigation.
-   Retain the approved mobile header and compact hero. */
+/* Desktop Pegasus centered in the top header, approximately car-thumbnail size.
+   Mobile approved logo/Pegasus pairing and inventory cards stay unchanged. */
 @media (min-width:801px){
- .nav .navin{position:relative}
+ .nav .navin{position:relative;min-height:146px}
  .nav .mobile-header-pegasus{
-  display:flex;flex:0 0 clamp(180px,15vw,255px);
-  width:clamp(180px,15vw,255px);
-  height:94px;margin:0;
-  align-items:center;justify-content:center;
-  pointer-events:none;
+  position:absolute;left:50%;top:0;
+  transform:translateX(-50%);
+  display:flex;align-items:center;justify-content:center;
+  width:clamp(270px,24vw,400px);
+  height:146px;margin:0;max-width:none;
+  pointer-events:none;z-index:1;
  }
  .nav .mobile-header-pegasus img{
-  width:100%;height:100%;object-fit:contain;display:block;
-  transform:scale(1.12);
+  display:block;width:100%;height:100%;
+  object-fit:contain;transform:scale(1.14);
  }
+ .nav .brand,.nav .links{position:relative;z-index:2}
  .nav .links{min-width:0}
  .hero .neoswift-dove-visual{display:none}
  .hero .wrap{grid-template-columns:minmax(0,1fr);row-gap:0}
  .hero h1,.hero p,.hero .buttons{grid-column:1}
+}
+@media (min-width:801px) and (max-width:1250px){
+ .nav .navin{min-height:136px;align-items:flex-end}
+ .nav .mobile-header-pegasus{width:clamp(220px,22vw,280px);height:112px;top:0}
+ .nav .brand,.nav .links{align-self:flex-end}
 }
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
