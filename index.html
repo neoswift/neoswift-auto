@@ -4,6 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NeoSwift Auto | Used Cars in Carrollton & North Dallas</title>
 <meta name="description" content="NeoSwift Auto — straightforward used-car listings in the Carrollton and North Dallas area.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#073d27;--blue:#208b4e;--green:#229b49;--red:#17683b;--gold:#8fd5a0;--ink:#172b20;--muted:#5c7264;--bg:#eff8f0}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
@@ -668,6 +671,24 @@ button:disabled{opacity:.65}
  .nav .desktop-header-copy p{font-size:clamp(10px,1.1vw,13px)}
  .nav .links{gap:4px}
  .nav .links a{font-size:clamp(9px,.85vw,11px);padding:4px 3px;min-height:30px}
+}
+/* Desktop navigation: slightly larger tall condensed lettering and wider gaps. */
+@media (min-width:801px){
+ .nav .links{
+  gap:clamp(7px,.68vw,14px);
+ }
+ .nav .links a{
+  font-family:'Oswald','Arial Narrow','Bahnschrift Condensed',Arial,sans-serif;
+  font-weight:500;
+  font-size:clamp(12px,.91vw,17px);
+  letter-spacing:.012em;
+  line-height:1.25;
+  padding:7px clamp(4px,.36vw,8px);
+ }
+}
+@media (min-width:801px) and (max-width:1199px){
+ .nav .links{gap:5px}
+ .nav .links a{font-size:clamp(10px,.96vw,12px);padding:5px 3px;min-height:32px}
 }
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
