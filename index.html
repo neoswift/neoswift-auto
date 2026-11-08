@@ -723,9 +723,12 @@ h1,h2,h3,.title,.desktop-header-copy h1{
 /* Desktop inventory: linked vehicle titles replace View Details buttons. */
 #inventory .inventory-grid > article.card .vehicle-title-link{
  display:block;
+ width:100%;
+ cursor:pointer;
  color:inherit;
  text-decoration:none;
  border-radius:7px;
+ font:inherit;
 }
 #inventory .inventory-grid > article.card .vehicle-title-link:focus-visible{
  outline:3px solid #28785a;
@@ -938,14 +941,22 @@ function sendOffer(e){
   names.push(name);
   const preview=document.createElement('div');preview.className='preview-meta';
   const heading=document.createElement('h3');
-  const titleLink=document.createElement('a');
+  const titleLink=document.createElement('button');
+  titleLink.type='button';
   titleLink.className='vehicle-title-link';
-  titleLink.href='?vehicle='+(index+1)+'#vehicle-details';
+  const detailUrl='?vehicle='+(index+1)+'#vehicle-details';
   titleLink.textContent=name;
+  titleLink.setAttribute('aria-label','View details for '+name);
+  titleLink.addEventListener('click',function(){
+   const url=new URL(detailUrl,location.href);
+   if(url.href!==location.href)history.pushState({},'',url.href);
+   render();
+   scrollToSection();
+  });
   heading.appendChild(titleLink);
   const button=document.createElement('a');
   button.className='btn green';button.textContent='View Details';
-  button.href=titleLink.href;
+  button.href=detailUrl;
   preview.append(heading,button);card.append(preview);
   const photoLink=card.querySelector('a:has(img)');
   if(photoLink){photoLink.href=button.href;photoLink.removeAttribute('target');photoLink.removeAttribute('download');}
