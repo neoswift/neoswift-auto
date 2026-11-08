@@ -28,6 +28,17 @@ nav a,h1,legend{color:#202822}
 .btn{background:#d2eadd;color:#202822;border:1px solid #aecfba}
 .btn:hover{background:#bddcc9;color:#202822}
 input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline-color:#606e65}
+
+/* Buttons matched to Deep Pistachio logo accent */
+:root{--button-pistachio:#91a575}
+.btn,.btn.green,.btn.blue,.btn.light,.btn.red,button{
+ background:#91a575;color:#172017;border:1px solid #91a575;font-weight:600;
+}
+.btn:hover,.btn.green:hover,.btn.blue:hover,.btn.light:hover,.btn.red:hover,button:hover{
+ background:#83976a;color:#111811;border-color:#83976a;
+}
+.btn:focus-visible,button:focus-visible{outline:3px solid #34452a;outline-offset:3px}
+button:disabled{opacity:.65}
 </style></head><body>
 <nav><a href="./">← NeoSwift Auto — Back to Vehicles</a></nav>
 <main><h1>Find My Car</h1><p class="sub">Tell us what you're looking for. We'll review your request and contact you about potential matches.</p>
