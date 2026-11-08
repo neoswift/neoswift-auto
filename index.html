@@ -395,6 +395,38 @@ button:disabled{opacity:.65}
  .nav .links{gap:10px 8px}
  .nav .links a{font-size:14px}
 }
+/* Desktop navigation: preserve one horizontal row to the right of Pegasus. */
+@media (min-width:801px){
+ .nav .navin{
+  grid-template-columns:minmax(0,1fr) minmax(0,.84fr) minmax(0,1.62fr);
+  column-gap:clamp(8px,1vw,20px);
+ }
+ .nav .links{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:clamp(5px,.75vw,15px);
+  white-space:nowrap;
+ }
+ .nav .links a{
+  flex:0 0 auto;
+  white-space:nowrap;
+  font-size:clamp(11px,.88vw,18px);
+  line-height:1.2;
+ }
+}
+@media (min-width:1500px){
+ .nav .navin{grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,1.7fr)}
+ .nav .links{display:flex;flex-wrap:nowrap;gap:clamp(10px,.9vw,20px)}
+ .nav .links a{font-size:clamp(14px,.95vw,19px)}
+}
+@media (min-width:801px) and (max-width:1050px){
+ .nav .navin{grid-template-columns:minmax(0,.95fr) minmax(0,.72fr) minmax(0,1.9fr);column-gap:6px}
+ .nav .links{display:flex;flex-wrap:nowrap;gap:5px}
+ .nav .links a{font-size:clamp(10px,1vw,12px)}
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
