@@ -6,7 +6,7 @@
 <meta name="description" content="NeoSwift Auto — straightforward used-car listings in the Carrollton and North Dallas area.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#073d27;--blue:#208b4e;--green:#229b49;--red:#17683b;--gold:#8fd5a0;--ink:#172b20;--muted:#5c7264;--bg:#eff8f0}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
@@ -690,6 +690,23 @@ button:disabled{opacity:.65}
  .nav .links{gap:5px}
  .nav .links a{font-size:clamp(10px,.96vw,12px);padding:5px 3px;min-height:32px}
 }
+/* NeoSwift logo-inspired typography: angular, slightly slanted display text.
+   Preserve the existing layout and use upright text for long descriptions. */
+body,button,input,textarea,select{font-family:'Exo 2',Arial,Helvetica,sans-serif}
+h1,h2,h3,.title,.desktop-header-copy h1{
+ font-family:'Exo 2',Arial,Helvetica,sans-serif;
+ font-weight:700;
+ font-style:italic;
+ letter-spacing:-.025em;
+}
+.nav .links a{
+ font-family:'Exo 2',Arial,Helvetica,sans-serif;
+ font-style:italic;
+ font-weight:600;
+ letter-spacing:-.015em;
+}
+.btn,button.btn,.status,.chip{font-family:'Exo 2',Arial,Helvetica,sans-serif;font-weight:600}
+.hero p,.desktop-header-copy p,.facts,.notice,.details p{font-style:normal;font-weight:400}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
