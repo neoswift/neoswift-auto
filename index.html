@@ -226,10 +226,15 @@ button:disabled{opacity:.65}
  overflow:hidden;
 }
 #inventory .vehicle-image-frame > a{display:block;width:100%;background:#e4f2e8}
+/* Show every complete vehicle image without cropping or fixed-height letterboxing.
+   Natural image ratios allow the photo area to resize responsively on all screens. */
 #inventory .inventory-grid > article.card img{
  display:block;
  width:100%;
- object-fit:cover!important;
+ height:auto!important;
+ max-height:none!important;
+ aspect-ratio:auto!important;
+ object-fit:contain!important;
  object-position:center!important;
  background:#e4f2e8!important;
  border:0;
