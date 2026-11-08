@@ -30,6 +30,35 @@ footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 #vehicle-details .detail-layout img{display:block;width:100%;height:auto!important;max-height:650px;object-fit:contain!important;background:#e4f2e8}
 #vehicle-details .detail-layout .preview-meta{display:none}
 @media(max-width:800px){#vehicle-details .detail-layout{grid-template-columns:1fr}}
+
+/* NeoSwift pale mint theme */
+:root{--navy:#193a30;--blue:#d4eadf;--green:#16624a;--red:#215844;--gold:#a8d6bd;--ink:#17241e;--muted:#4d6459;--bg:#e7f3eb}
+body{background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(115deg,#d7ece0 0%,#edf7f0 100%);color:var(--ink);border-bottom:1px solid #c6dfd0}
+.hero h1{color:#193a30;letter-spacing:-.035em}
+.hero p{color:#435d50;opacity:1}
+main>section:nth-of-type(even){background:#deeee4}
+.title{font-size:28px;letter-spacing:-.025em;font-weight:700}
+.card{background:#f6fbf7;border:1px solid #cfe2d5;box-shadow:0 6px 22px #183c2b0a}
+#inventory article.card .preview-meta{background:#f0f8f3;border-top:1px solid #d9e9df}
+.btn{font-weight:600;border:1px solid transparent;transition:background .15s ease,box-shadow .15s ease}
+.btn.green{background:#16624a;color:#fff}
+.btn.blue{background:#d4eadf;color:#193a30;border-color:#b5d5c3}
+.btn.light{background:#f7fcf9;color:#193a30;border-color:#b5d5c3}
+.btn.red{background:#215844;color:#fff}
+.btn:hover{box-shadow:0 3px 10px #193a3020}
+.btn.green:hover{background:#114d3b}
+.btn.blue:hover,.btn.light:hover{background:#c7e2d3}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #28785a;outline-offset:3px}
+.facts{color:#4d6459}
+.chip{background:#dceee2;color:#244838;font-weight:600}
+.notice{background:#e6f3eb;border-left-color:#76ae8c;color:#304b3d}
+.form input,.form textarea,.form select{background:#fafffb;border-color:#a7c9b4!important;color:#17241e}
+footer{background:#cee6d8;color:#254536;border-top:1px solid #afcebc}
+footer a{color:#193a30}
+.sticky{background:#e7f3eb}
+#contact a:not(.btn){color:#195a42}
+@media(max-width:800px){.hero{padding:40px 0}.title{font-size:25px}}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
