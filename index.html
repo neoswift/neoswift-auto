@@ -124,6 +124,31 @@ button:disabled{opacity:.65}
  filter:brightness(.91);
  box-shadow:0 3px 10px #193a3020;
 }
+
+/* Four homepage actions on one mobile row (other button groups unchanged). */
+@media (max-width:600px){
+ .hero .buttons{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:4px;
+  width:100%;
+  margin-top:18px;
+ }
+ .hero .buttons > .btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  min-height:44px;
+  padding:10px 2px;
+  font-size:clamp(9px,2.6vw,12px);
+  line-height:1.15;
+  letter-spacing:-.025em;
+  white-space:nowrap;
+  text-align:center;
+  border-radius:7px;
+ }
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
