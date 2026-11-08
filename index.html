@@ -529,6 +529,26 @@ button:disabled{opacity:.65}
  }
  .nav .links a{flex:0 0 auto;white-space:nowrap;margin:0}
 }
+/* Desktop navigation: lightly outlined links with clearer separation. */
+@media (min-width:801px){
+ .nav .links{gap:clamp(7px,.7vw,14px);justify-content:flex-end}
+ .nav .links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:6px clamp(5px,.45vw,9px);
+  border:1px solid rgba(24,64,44,.38);
+  border-radius:7px;
+  background:rgba(255,255,255,.28);
+  text-decoration:none;
+  white-space:nowrap;
+ }
+ .nav .links a:hover,.nav .links a:focus-visible{
+  background:rgba(255,255,255,.55);
+  border-color:#28785a;
+ }
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
