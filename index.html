@@ -282,6 +282,16 @@ button:disabled{opacity:.65}
  .hero .hero-desktop-copy{display:inline}
  .hero .hero-mobile-copy{display:none}
 }
+/* Compact mobile hero: same single-line heading and tagline as desktop. */
+@media (max-width:600px){
+ .hero{padding:6px 0 7px}
+ .hero h1{max-width:none;font-size:clamp(18px,5.2vw,24px);line-height:1.12;white-space:nowrap}
+ .hero h1 br{display:none}
+ .hero p{padding-top:0;margin:4px 0 0;line-height:1.15;font-size:clamp(9px,2.55vw,12px);white-space:nowrap;max-width:none}
+ .hero .hero-desktop-copy{display:inline}
+ .hero .hero-mobile-copy{display:none}
+ .hero .buttons{margin-top:6px}
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
