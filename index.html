@@ -612,6 +612,63 @@ button:disabled{opacity:.65}
  .nav .links{gap:4px}
  .nav .links a{font-size:clamp(10px,1vw,12px);padding:5px 5px}
 }
+/* Desktop header: logo | Pegasus | centered headline/tagline | right-aligned navigation. */
+@media (min-width:801px){
+ .nav .navin{
+  display:grid;
+  grid-template-columns:minmax(0,21%) minmax(0,15%) minmax(0,28%) minmax(0,1fr);
+  grid-template-rows:auto;
+  column-gap:clamp(5px,.6vw,13px);
+  row-gap:0;
+  align-items:center;
+  min-height:140px;
+ }
+ .nav .brand{grid-column:1;grid-row:1;align-self:center;justify-self:start}
+ .nav .mobile-header-pegasus{
+  grid-column:2;grid-row:1;
+  justify-self:start;align-self:center;
+  width:100%;height:130px;
+ }
+ .nav .desktop-header-copy{
+  grid-column:3;grid-row:1;
+  align-self:center;justify-self:center;
+  width:100%;
+  min-width:0;
+  text-align:center;
+ }
+ .nav .desktop-header-copy h1{
+  font-size:clamp(20px,1.65vw,32px);
+  white-space:normal;
+  margin:0 0 5px;
+ }
+ .nav .desktop-header-copy p{
+  font-size:clamp(12px,1.02vw,18px);
+  white-space:normal;
+  margin:0;
+ }
+ .nav .links{
+  grid-column:4;grid-row:1;
+  align-self:center;justify-self:end;
+  display:flex;flex-wrap:nowrap;
+  justify-content:flex-end;
+  gap:clamp(3px,.42vw,8px);
+  margin:0 0 0 auto;
+  max-width:100%;
+ }
+ .nav .links a{
+  font-size:clamp(10px,.74vw,15px);
+  padding:6px clamp(3px,.35vw,7px);
+  white-space:nowrap;
+ }
+}
+@media (min-width:801px) and (max-width:1199px){
+ .nav .navin{grid-template-columns:minmax(0,18%) minmax(0,12%) minmax(0,26%) minmax(0,1fr);column-gap:4px;min-height:110px}
+ .nav .mobile-header-pegasus{height:104px}
+ .nav .desktop-header-copy h1{font-size:clamp(16px,1.9vw,22px)}
+ .nav .desktop-header-copy p{font-size:clamp(10px,1.1vw,13px)}
+ .nav .links{gap:2px}
+ .nav .links a{font-size:clamp(9px,.85vw,11px);padding:4px 3px;min-height:30px}
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
