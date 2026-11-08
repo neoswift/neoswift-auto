@@ -330,6 +330,16 @@ function sendOffer(e){
 <script>
 (function(){
  const inventory=document.getElementById('inventory');
+ // Show newest vehicle model years first; keep the full cards and their details together.
+ const listingGrid=inventory.querySelector('article.card')?.parentElement;
+ if(listingGrid){
+  const ordered=Array.from(listingGrid.querySelectorAll(':scope > article.card'));
+  ordered.sort((a,b)=>{
+   const year=card=>Number((card.querySelector('.details h2')?.textContent||'').match(/\b(?:19|20)\d{2}\b/)?.[0]||0);
+   return year(b)-year(a);
+  });
+  ordered.forEach(card=>listingGrid.appendChild(card));
+ }
  const cards=Array.from(inventory.querySelectorAll('article.card'));
  const detail=document.createElement('section');
  detail.id='vehicle-details';
