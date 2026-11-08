@@ -20,7 +20,7 @@ footer{background:#073b27;color:#d9e4ef;padding:30px 0}.foot{display:flex;justif
 
 #inventory article.card>.details{display:none}
 #inventory article.card{display:flex;flex-direction:column}
-#inventory article.card .preview-meta{padding:18px 22px 22px;margin-top:auto}
+#inventory article.card .preview-meta{padding:18px 22px 22px;margin-top:0}
 #inventory article.card .preview-meta h3{font-size:16px;font-weight:600;line-height:1.35;letter-spacing:-.2px;color:#171717;margin:0 0 14px;white-space:nowrap;width:100%}
 #inventory article.card img{height:300px!important;object-fit:contain!important}
 #inventory article.card .preview-meta .btn{width:100%;text-align:center}
@@ -242,20 +242,6 @@ button:disabled{opacity:.65}
 #inventory .inventory-grid > article.card .preview-meta{
  background:#f0f8f3;
  border-top:1px solid #d9e9df;
-}
-/* Lightly trim embedded top/bottom padding on these three listing thumbnails only.
-   The actual images and the full-size links remain untouched. */
-#inventory .inventory-grid > article.card > a:has(img[src^="Honda_2015_Pilot_LX_White.png"]),
-#inventory .inventory-grid > article.card > a:has(img[src^="Honda_2019_LX_Black.png"]),
-#inventory .inventory-grid > article.card > a:has(img[src^="Audi_2013_A4_Prestige_gray.png"]){
- overflow:hidden;
-}
-#inventory .inventory-grid > article.card img[src^="Honda_2015_Pilot_LX_White.png"],
-#inventory .inventory-grid > article.card img[src^="Honda_2019_LX_Black.png"],
-#inventory .inventory-grid > article.card img[src^="Audi_2013_A4_Prestige_gray.png"]{
- width:100%;
- height:auto!important;
- margin-block:-3%;
 }
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
