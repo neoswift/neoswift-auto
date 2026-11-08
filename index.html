@@ -150,21 +150,21 @@ button:disabled{opacity:.65}
  }
 }
 
-/* Small, horizontal dove accent alongside the headline. */
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,160px);column-gap:12px;align-items:center}
+/* Larger flying horse, balanced alongside headline without changing other sections. */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);column-gap:12px;align-items:center}
 .hero h1{grid-column:1;grid-row:1;margin:0}
-.hero .neoswift-dove-visual{grid-column:2;grid-row:1 / span 2;margin:0;width:100%;max-width:160px;justify-self:end;align-self:center;overflow:hidden;border-radius:6px}
-.hero .neoswift-dove-visual img{display:block;width:100%;height:64px;object-fit:contain;object-position:center;border-radius:6px}
+.hero .neoswift-dove-visual{grid-column:2;grid-row:1 / span 2;margin:0;width:100%;max-width:320px;justify-self:end;align-self:center;overflow:visible}
+.hero .neoswift-dove-visual img{display:block;width:100%;height:130px;object-fit:contain;object-position:center}
 .hero p{grid-column:1;grid-row:2;margin:10px 0 0}
 .hero .buttons{grid-column:1/-1;grid-row:3}
 @media(max-width:600px){
- .hero{padding:15px 0 18px}
- .hero .wrap{grid-template-columns:minmax(0,1fr) 105px;gap:0 6px}
- .hero h1{font-size:clamp(25px,7.2vw,35px);line-height:1.08;letter-spacing:-.035em}
- .hero .neoswift-dove-visual{grid-row:1;grid-column:2;justify-self:end;width:100%;max-width:105px;border-radius:5px}
- .hero .neoswift-dove-visual img{height:58px;object-fit:contain;border-radius:5px}
- .hero p{grid-column:1/-1;grid-row:2;font-size:13px;line-height:1.35;margin:8px 0 0}
- .hero .buttons{margin-top:12px}
+ .hero{padding:12px 0 15px}
+ .hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,49%);gap:0 5px}
+ .hero h1{font-size:clamp(23px,6.6vw,32px);line-height:1.08;letter-spacing:-.035em}
+ .hero .neoswift-dove-visual{grid-row:1;grid-column:2;justify-self:end;width:100%;max-width:200px}
+ .hero .neoswift-dove-visual img{height:110px;object-fit:contain}
+ .hero p{grid-column:1/-1;grid-row:2;font-size:13px;line-height:1.35;margin:6px 0 0}
+ .hero .buttons{margin-top:10px}
 }
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
