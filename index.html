@@ -427,6 +427,14 @@ button:disabled{opacity:.65}
  .nav .links{display:flex;flex-wrap:nowrap;gap:5px}
  .nav .links a{font-size:clamp(10px,1vw,12px)}
 }
+/* Desktop: place Pegasus directly beside NeoSwift Auto logo; menu stays one row. */
+@media (min-width:801px){
+ .nav .navin{
+  grid-template-columns:minmax(0,clamp(185px,23vw,437px)) minmax(0,clamp(145px,18vw,350px)) minmax(0,1fr);
+  column-gap:clamp(2px,.4vw,9px);
+ }
+ .nav .mobile-header-pegasus{justify-self:start}
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
