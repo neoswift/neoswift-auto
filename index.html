@@ -898,6 +898,30 @@ main>section:nth-of-type(even){background:var(--uniform-mint)}
  background:transparent!important;
  mix-blend-mode:normal!important;
 }
+
+/* Mobile: clean transparent NeoSwift logo, original proportions, aligned with Pegasus. */
+@media (max-width:800px){
+ .nav .navin{
+  background:transparent;
+ }
+ .nav .brand{
+  min-width:0;
+  background:transparent!important;
+ }
+ .nav .brand img{
+  display:block;
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  object-position:left center;
+  background:transparent!important;
+  mix-blend-mode:normal!important;
+ }
+ .nav .mobile-header-pegasus{
+  background:transparent!important;
+ }
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
