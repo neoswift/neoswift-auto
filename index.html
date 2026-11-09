@@ -1046,6 +1046,25 @@ main>section:nth-of-type(even){background:var(--uniform-mint)}
   margin-bottom:0!important;
  }
 }
+
+/* All vehicle cards: reduce empty space below landscape car artwork on mobile. */
+@media (max-width:800px){
+ #inventory .inventory-grid > article.card > a:has(img),
+ #inventory .inventory-grid > article.card > .vehicle-image-frame{
+   aspect-ratio:1.28 / 1!important;
+ }
+ #inventory .inventory-grid > article.card .preview-meta{
+   padding:0 3% 2.5%!important;
+   margin-top:0!important;
+ }
+ #inventory .inventory-grid > article.card .preview-meta h3{
+   margin:0!important;
+   line-height:1.15;
+ }
+ #inventory .inventory-grid > article.card .vehicle-title-link{
+   margin-top:0!important;
+ }
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
