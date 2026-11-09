@@ -1004,6 +1004,29 @@ main>section:nth-of-type(even){background:var(--uniform-mint)}
   transform:none!important;
  }
 }
+
+/* Taller, uncropped vehicle gallery images on phones.
+   More of the first listing fills the opening screen before the next car appears. */
+@media (max-width:600px){
+ #inventory .inventory-grid > article.card > a:has(img),
+ #inventory .inventory-grid > article.card > .vehicle-image-frame{
+  aspect-ratio:1 / 1.12!important;
+  min-height:0;
+ }
+ #inventory .inventory-grid > article.card > a img,
+ #inventory .inventory-grid > article.card > .vehicle-image-frame img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+ }
+}
+@media (min-width:601px) and (max-width:800px){
+ #inventory .inventory-grid > article.card > a:has(img),
+ #inventory .inventory-grid > article.card > .vehicle-image-frame{
+  aspect-ratio:1.1 / 1!important;
+ }
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
