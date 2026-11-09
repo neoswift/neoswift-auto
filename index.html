@@ -987,6 +987,23 @@ main>section:nth-of-type(even){background:var(--uniform-mint)}
  .sticky .btn:first-child{background:#91a575;border-color:#91a575;color:#172017}
  .sticky .btn:last-child{background:#28bf60;border-color:#28bf60;color:#092918}
 }
+
+/* Always-visible mobile contact dock, including the first homepage viewport. */
+@media (max-width:800px){
+ html{scroll-padding-bottom:75px}
+ body{padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+ .sticky{
+  display:grid!important;
+  position:fixed!important;
+  inset-inline:0!important;
+  bottom:0!important;
+  width:100%!important;
+  z-index:9999!important;
+  visibility:visible!important;
+  opacity:1!important;
+  transform:none!important;
+ }
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
@@ -1237,8 +1254,11 @@ function sendOffer(e){
   link.setAttribute('href',location.pathname+link.getAttribute('href'));
  });
  function scrollToSection(){
+  // Do not jump down the homepage on first load without an anchor.
+  // A selected vehicle or explicit section link may still scroll into view.
   const id=location.hash.slice(1);
-  const target=id?document.getElementById(id):(detail.hidden?inventory:detail);
+  if(!id)return;
+  const target=document.getElementById(id);
   if(target)target.scrollIntoView();
  }
  document.addEventListener('click',function(event){
