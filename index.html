@@ -892,6 +892,14 @@ main>section:nth-of-type(even){background:var(--uniform-mint)}
 .nav .brand img{
  background:transparent;
 }
+
+/* Visually blend a light-background logo into the uniform mint header.
+   This preserves the existing artwork without changing the PNG bytes. */
+.nav .brand{isolation:auto}
+.nav .brand img{
+ background:transparent!important;
+ mix-blend-mode:multiply;
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
