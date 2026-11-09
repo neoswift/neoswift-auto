@@ -866,6 +866,20 @@ h1,h2,h3,.title,.desktop-header-copy h1{
   white-space:nowrap;
  }
 }
+
+/* Single mint background across the site and vehicle presentation.
+   Use the approved Mazda artwork shade so image edges blend naturally. */
+:root{--uniform-mint:#E3F2E9;--bg:var(--uniform-mint)}
+html,body{background:var(--uniform-mint)}
+main>section:nth-of-type(even){background:var(--uniform-mint)}
+#inventory .inventory-grid > article.card > a:has(img),
+#inventory .inventory-grid > article.card > .vehicle-image-frame,
+#inventory .inventory-grid > article.card > .vehicle-image-frame > a,
+#inventory .inventory-grid > article.card > a img,
+#inventory .inventory-grid > article.card > .vehicle-image-frame img,
+#vehicle-details .detail-layout img{
+ background:var(--uniform-mint)!important;
+}
 </style>
 <!-- Google Analytics 4 — NeoSwift Auto -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQPZZ339C6"></script>
